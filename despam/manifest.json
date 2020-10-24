@@ -3,7 +3,6 @@
   "version": "1.0",
   "manifest_version": 2,
   "description": "Never deal with the unending onslaught of spam mail on your gmail accounts ever again",
-  "homepage_url": "",
   "icons": {
     "16": "icons/icon16.png",
     "48": "icons/icon48.png",
