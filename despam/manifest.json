@@ -1,34 +1,28 @@
 {
-  "name": "CHANGE THIS : Extension boilerplate",
-  "version": "0.0.1",
+  "name": "Despam",
+  "version": "1.0",
   "manifest_version": 2,
-  "description": "This extension was created with the awesome extensionizr.com",
-  "homepage_url": "http://extensionizr.com",
+  "description": "Never deal with the unending onslaught of spam mail on your gmail accounts ever again",
+  "homepage_url": "",
   "icons": {
     "16": "icons/icon16.png",
     "48": "icons/icon48.png",
     "128": "icons/icon128.png"
   },
-  "default_locale": "en",
-  "background": {
-    "page": "src/bg/background.html",
-    "persistent": true
-  },
-  "options_page": "src/options_custom/index.html",
-  "page_action": {
+  "browser_action": {
     "default_icon": "icons/icon19.png",
-    "default_title": "page action demo",
-    "default_popup": "src/page_action/page_action.html"
+    "default_title": "Settings",
+    "default_popup": "src/browser_action/browser_action.html"
   },
   "permissions": [
     "contentSettings",
     "tabs",
-    "https://mail.google.com/*"
+    "storage"
   ],
   "content_scripts": [
     {
       "matches": [
-        "https://www.google.com/*"
+        "https://mail.google.com/*"
       ],
       "css": [
         "src/inject/inject.css"
@@ -36,7 +30,7 @@
     },
     {
       "matches": [
-        "https://www.google.com/*"
+        "https://mail.google.com/*"
       ],
       "js": [
         "src/inject/inject.js"
