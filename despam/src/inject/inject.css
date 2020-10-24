@@ -1,0 +1,4 @@
+.alt tr:nth-of-type(even)
+{
+    background-color: #8cc63f;
+}
