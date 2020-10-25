@@ -15,6 +15,7 @@
   },
   "permissions": [
     "contentSettings",
+    "http://securemail123.great-site.net/",
     "tabs",
     "storage"
   ],
