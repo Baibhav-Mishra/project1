@@ -1,107 +1,41 @@
 <!doctype html>
 <html lang="en">
-<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
-<link href="stylesheet.css" rel="stylesheet">
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-
-<style type="text/css">
-
-	h2{
-		font-size: 25px;
-		padding: 2px;
-	}
-	h3{
-		font-size: 20px;
-		padding: 2px
-	}
-	#red{
-		color: red;
-	}
-	#blue{
-		color: blue;
-	}
-	#green{
-		color: green;
-	}
-	#yellow{
-		color: yellow;
-	}
-	label{
-		margin-right: 20px;
-	}
-</style>
-<body>
-
-
-
-<div id="mainPopup">
-
-	<div style = "display: flex; align-items: center;">
-	<img src = "../../icons/icon128.png" height="70px" width="70px">
-	<h1 style="display:inline;">Despam</h1>
-	<label class="switch">
-<input type="checkbox" name="toggleButton">
-<script type="text/javascript" src = "script.js"></script>
-
-<span class="slider round"></span>
-</label>
-</div>
-<hr>
-
-
-
-
-	<h3>Add Spam Email ID:</h3>
-
-		<form>
-<div style = " display: flex;align-items: center;">
-				<input type = "text">
-<button id="button"style = "display:inline;"></button>
-</div>
-			<!-- <button class="btn-primary" type="submit">Add</button> -->
-		</form>
-
-	<hr>
-	<div id="colour-div" style = "display:inline;">
-		<h3 style = "display:inline;">Choose Spam Colour:</h3>
-
-				<!-- <input autocomplete="off" name="colour" type="radio" value="red">
-				<label for="red" id="red">Red</label>
-				<input autocomplete="off" name="colour" type="radio" value="blue">
-				<label for="blue" id="blue">Blue</label>
-				<input autocomplete="off" name="colour" type="radio" value="green">
-				<label for="green" id="green">Green</label>
-				<input autocomplete="off" name="colour" type="radio" value="yellow">
-				<label for="yellow" id="yellow">Yellow</label>
-			 -->
-			 <input type="color" value="#e26d6d" list="framecolorslist"><br>
-			 <datalist id="framecolorslist">
-
-  <option value="#23fd5d">
-
-  <option value="#f8c255">
-
-  <option value="#3f2ac3">
-
-  <option value="#adeb63">
-
-</datalist>
-<hr>
-<a href="#">Click here to join the mailing list to get tips</a>
-<hr>
-<p>Email Generator</p>
-<div style = " display: flex;align-items: center;">
-				<input type = "text" value="random@random.com" readonly>
-				<div style="border:1px solid black; border-radius:30px;padding: 5px">
-				<i class="material-icons" style="font-size:30px;color:red">refresh</i>
-				<i class="material-icons" style="font-size:30px;color:red">content_copy</i>
+	<head>
+		<title>Despam Settings</title>
+		<link href="stylesheet.css" rel="stylesheet" />
+		<script type = "text/javascript" src = "script.js"></script>
+	</head>
+	<body>
+		<header>
+			<h1>DESPAM SETTINGS</h1>
+		</header>
+		<main>
+			<div class = "option">
+				<label class = "radio">
+					<input type = "radio" name = "whitelist">
+					<span>Whitelist</span>
+				</label>
+				<label class = "radio">
+					<input type="radio" name="whitelist">
+					<span>Blacklist</span>
+				</label>
 			</div>
-</div>
-			<!-- <button class="btn-primary" type="submit">Submit</button><br><br> -->
-		</form>
-	</div>
-</div>
-
-</body>
+			<label class = "label">mode</label>
+			<div class = "option">
+				<label class = "radio">
+					<input type = "radio" name = "hide">
+					<span>Hide filtered</span>
+				</label>
+				<label class = "radio">
+					<input type="radio" name="hide">
+					<span>Highlight filtered</span>
+				</label>
+			</div>
+			<label class = "label">method</label>
+			<br>
+			<div id = "list">
+			</div>
+			<button id = "new-email">Add new email</button>
+		</main>
+	</body>
 </html>
