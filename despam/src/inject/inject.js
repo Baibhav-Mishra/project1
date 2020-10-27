@@ -16,13 +16,10 @@ chrome.extension.sendMessage({}, function(response) {
 			for(let a = 0; a < mailList.length; a++)
 			{
 				let emailId = mailList[a].getElementsByTagName('span')[7].getAttribute('email');
+				console.log(emailId);
 				if (emailList.includes(emailId))
 				{
-						tBodies[2].getElementsByTagName('tr')[a].style.backgroundColor = "#AB3A3A";
-				}
-				else
-				{
-						// tBodies[2].getElementsByTagName('tr')[a].style.backgroundColor = "white"
+					mailList[a].style.backgroundColor = "#AB3A3A";
 				}
 			}
 		}
