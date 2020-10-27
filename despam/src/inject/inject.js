@@ -2,7 +2,7 @@ chrome.extension.sendMessage({}, function(response) {
 	var readyStateCheckInterval = setInterval(function() {
 	if (document.readyState === "complete") {
 		clearInterval(readyStateCheckInterval);
-		var emailList = ['baibhavmishra2010@gamil.com', 'santripta@gamil.com', 'aastha.gaur100@gmail.com', 'chrysalisdps20@gmail.com', 'aravcr4085@gmail.com'];
+		var emailList = ['baibhavmishra2010@gamil.com', 'santripta@gamil.com', 'india@acceptu.com', 'aastha.gaur100@gmail.com', 'chrysalisdps20@gmail.com', 'aravcr4085@gmail.com'];
 		function isDefaultInbox()
 		{
 			return true;
@@ -12,24 +12,18 @@ chrome.extension.sendMessage({}, function(response) {
 
 		function filterDefault()
 		{
-			let tBodies = document.getElementsByClassName("no")[1].getElementsByTagName("tbody");
-			console.log(tBodies);
-			for(let a = 0; a < tBodies[2].getElementsByTagName('tr').length; a++)
+			let mailList = document.getElementsByClassName("no")[1].getElementsByTagName("tbody")[2].getElementsByTagName("tr");
+			for(let a = 0; a < mailList.length; a++)
 			{
-				let emailId = document.getElementsByClassName("no")[1]
-				.getElementsByTagName("tbody")[2].getElementsByTagName("tr")[a]
-				.getElementsByTagName('span')[6].getAttribute('email');
+				let emailId = mailList[a].getElementsByTagName('span')[7].getAttribute('email');
 				if (emailList.includes(emailId))
-					{
-						tBodies[2].getElementsByTagName('tr')[a].style.backgroundColor = "red";
-
-
-					}
+				{
+						tBodies[2].getElementsByTagName('tr')[a].style.backgroundColor = "#AB3A3A";
+				}
 				else
-					{
+				{
 						// tBodies[2].getElementsByTagName('tr')[a].style.backgroundColor = "white"
-					}
-
+				}
 			}
 		}
 
