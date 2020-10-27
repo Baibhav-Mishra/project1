@@ -7,7 +7,7 @@ chrome.extension.sendMessage({}, function(response) {
 		{
 			return true;
 		}
-		
+
 		let defaultInbox = isDefaultInbox();
 
 		function filterDefault()
@@ -23,13 +23,13 @@ chrome.extension.sendMessage({}, function(response) {
 					{
 						tBodies[2].getElementsByTagName('tr')[a].style.backgroundColor = "red";
 
-					
+
 					}
 				else
 					{
 						// tBodies[2].getElementsByTagName('tr')[a].style.backgroundColor = "white"
 					}
-				
+
 			}
 		}
 
@@ -66,7 +66,7 @@ chrome.extension.sendMessage({}, function(response) {
 // 					{
 // 						//tBodies[2].classList.add("alt");
 // 						console.log("Yeah!")
-					
+
 // 					}
 
 // 				window.alert(document.getElementsByClassName("no")[1].getElementsByTagName("tbody")[2].getElementsByTagName("tr")[i].getElementsByTagName('span')[6].getAttribute('email'));
