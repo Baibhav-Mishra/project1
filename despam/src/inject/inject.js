@@ -1,8 +1,22 @@
+let emailList = [];
+let whiteList = false;
+let hide = false;
+
+function getSettings()
+{
+	chrome.storage.sync.get(null, (s) => {
+		if(s.email_list !== undefined) emailList = s.email_list;
+		if(s.whitelisted !== undefined) whiteList = s.whitelisted;
+		if(s.hide !== undefined) hide = s.hide;
+	});
+}
+
+getSettings();
+
 chrome.extension.sendMessage({}, function(response) {
 	var readyStateCheckInterval = setInterval(function() {
 	if (document.readyState === "complete") {
 		clearInterval(readyStateCheckInterval);
-		var emailList = ['baibhavmishra2010@gamil.com', 'santripta@gamil.com', 'india@acceptu.com', 'aastha.gaur100@gmail.com', 'chrysalisdps20@gmail.com', 'aravcr4085@gmail.com'];
 		function isDefaultInbox()
 		{
 			return true;
@@ -13,15 +27,34 @@ chrome.extension.sendMessage({}, function(response) {
 		function filterDefault()
 		{
 			let mailList = document.getElementsByClassName("no")[1].getElementsByTagName("tbody")[2].getElementsByTagName("tr");
+			let filtered = []
 			for(let a = 0; a < mailList.length; a++)
 			{
 				let emailId = mailList[a].getElementsByTagName('span')[7].getAttribute('email');
-				console.log(emailId);
-				if (emailList.includes(emailId))
+
+				if ((emailList.includes(emailId) && !whiteList) || (!emailList.includes(emailId) && whiteList))
 				{
-					mailList[a].style.backgroundColor = "#AB3A3A";
+					filtered.push(mailList[a]);
 				}
 			}
+
+			return filtered;
+		}
+
+		function applyDefault(filtered)
+		{
+			for(let i = 0; i < filtered.length; i++)
+			{
+				if(!hide) filtered[i].style.backgroundColor = "#AB3A3A"; else filtered[i].style.display = "none";
+			}
+		}
+
+		function doDefault()
+		{
+			getSettings();
+			let filtered = filterDefault();
+			applyDefault(filtered);
+			return filtered;
 		}
 
 		if(defaultInbox)
@@ -31,11 +64,11 @@ chrome.extension.sendMessage({}, function(response) {
 			for(let i = 0; i < buttons.length; i++)
 			{
 				buttons[i].addEventListener("click", (target) => {
-					setTimeout(filterDefault, 150);
+					setTimeout(doDefault, 150);
 				});
 			}
-
-			filterDefault();
+			
+			doDefault();
 		}
 		else
 		{
@@ -44,22 +77,3 @@ chrome.extension.sendMessage({}, function(response) {
 	}
 	}, 10);
 });
-
-
-// for(let a = 0; a < tBodies.length; a++)
-// 			{
-// 				let emailId = document.getElementsByClassName("no")[1]
-// 				.getElementsByTagName("tbody")[2].getElementsByTagName("tr")[a]
-// 				.getElementsByTagName('span')[6].getAttribute('email')
-
-
-// 					if (emailList.includes(emailId))
-// 					{
-// 						//tBodies[2].classList.add("alt");
-// 						console.log("Yeah!")
-
-// 					}
-
-// 				window.alert(document.getElementsByClassName("no")[1].getElementsByTagName("tbody")[2].getElementsByTagName("tr")[i].getElementsByTagName('span')[6].getAttribute('email'));
-// 			}
-// 		}

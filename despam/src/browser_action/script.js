@@ -5,8 +5,6 @@ document.addEventListener("DOMContentLoaded", () => {
   let hideButton = document.getElementsByName("hide")[0];
   let highlightButton = document.getElementsByName("hide")[1];
 
-  
-  //Load settings from storage
   let emailList = []
   let whiteList = false;
   let hide = false;
@@ -30,6 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
   
+  //Load settings from storage
   chrome.storage.sync.get(null, (s) => {
     let email_list = s.email_list;
     if(email_list !== undefined) emailList = email_list; else chrome.storage.sync.set({email_list: []}, () => {}); 
