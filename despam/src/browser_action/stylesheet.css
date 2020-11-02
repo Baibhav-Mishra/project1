@@ -1,16 +1,16 @@
-@font-face 
+@font-face
 {
   font-family: Panama;
   src: url("assets/Panama-Light.otf") format("opentype");
 }
 
-@font-face 
+@font-face
 {
   font-family: PS;
   src: url("assets/productsans.ttf") format("truetype");
 }
 
-@font-face 
+@font-face
 {
   font-family: PSB;
   src: url("assets/productsans_bold.ttf") format("truetype");
@@ -80,7 +80,7 @@ label.radio
   cursor: pointer;
 }
 
-label.radio input 
+label.radio input
 {
   position: absolute;
   left: 0;
@@ -172,4 +172,10 @@ label.radio input:checked + span
 #new-email:active
 {
   background-color: #0c1e58;
+}
+#email_box
+{
+  height: 140px;
+  width: 320px;
+  border: solid #bac2db 2px;
 }
