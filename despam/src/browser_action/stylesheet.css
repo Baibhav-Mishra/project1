@@ -18,10 +18,9 @@
 
 body
 {
-  width:320px;
+  width:400px;
   height:440px;
   box-sizing: border-box;
-  overflow: hidden;
   background-color: #f3f3f3;
   font-family: "PS", "Ubuntu", Helvetica, Arial, sans-serif;
 }
@@ -112,7 +111,7 @@ label.radio input:checked + span
 {
   overflow-x:hidden;
   overflow-y:auto;
-  height: 140px;
+  height: 90px;
   border: solid #bac2db 2px;
 }
 
@@ -151,7 +150,7 @@ label.radio input:checked + span
   color:white;
 }
 
-#new-email
+button
 {
   margin-top: 18px;
   padding: 6px 12px;
@@ -164,18 +163,77 @@ label.radio input:checked + span
   transition-duration: 0.3s;
 }
 
-#new-email:hover
+button:hover
 {
   background-color: #3852a5;
 }
 
-#new-email:active
+button:active
 {
   background-color: #0c1e58;
 }
-#email_box
+
+#temp-email
 {
-  height: 140px;
-  width: 320px;
+  font-size: 0.9rem;
+}
+
+#inbox
+{
   border: solid #bac2db 2px;
+  overflow-y: auto;
+  height: 140px;
+  width: 90vw;
+  margin-bottom: 30px;
+  display: none;
+}
+
+.email-message
+{
+  border-bottom: solid #bac2db 2px;
+  padding: 10px 8px;
+}
+
+.info
+{
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.sender
+{
+  margin-left: auto;
+  font-size: 0.95rem;
+}
+
+.body
+{
+  padding: 4px 0;
+  border-top: solid #bac2db 2px;
+}
+
+.body h1, .body h2, .body h3, .body h4, .body h5, .body h6, .body p
+{
+  margin-top: 4px;
+  margin-bottom: 5px;
+}
+
+.body h1
+{
+  font-size: 1.2rem;
+}
+
+.body p
+{
+  font-size: 0.9rem;
+}
+
+.body img
+{
+  object-fit: cover;
 }

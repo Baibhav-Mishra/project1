@@ -25,13 +25,18 @@ document.addEventListener("DOMContentLoaded", () => {
     list.appendChild(emailEl);
     emailEl.addEventListener("click", () => {
       removeEmailElementAndCommit(email, emailEl);
+      if (emailList.length === 0) document.getElementById("list").style.display = "none";
     });
   }
   
+  loadExistingEmail();
+
   //Load settings from storage
   chrome.storage.sync.get(null, (s) => {
     let email_list = s.email_list;
     if(email_list !== undefined) emailList = email_list; else chrome.storage.sync.set({email_list: []}, () => {}); 
+
+    if(emailList.length == 0) document.getElementById("list").style.display = "none";
 
     let w = s.whitelisted;
     if(w !== undefined) whiteList = w; else chrome.storage.sync.set({whitelisted: false}, () => {});
@@ -52,6 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
   //Attach event listeners
   document.getElementById("new-email").addEventListener("click", () => {
     console.log("add email");
+    document.getElementById("list").style.display = "block";
     let emailInput = document.createElement("input");
     emailInput.classList.add("email-input");
     list.appendChild(emailInput);
@@ -73,6 +79,8 @@ document.addEventListener("DOMContentLoaded", () => {
       emailInput.blur();
     });
   });
+
+  document.getElementById("create-temp-email").addEventListener("click", generateEmail)
 
   whiteListButton.addEventListener("click", () => {
     chrome.storage.sync.set({ whitelisted: true }, () => { })
